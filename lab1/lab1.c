@@ -22,7 +22,9 @@ int main(void)
 	
 	while(1)
 	{
-		
-		// Add test code here...
+		lcd_set_cursor_pos(0,0)
+		write_byte(6)
+		delay_s(1)
+		write_byte(8)
 	}
 }

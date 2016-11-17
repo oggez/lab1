@@ -1,9 +1,11 @@
 ﻿/*
  * common.h
+ *	
+ *	Syftet med filen är att skapa macros för att sätta och cleara en bit. Med hjälp av macro så behöver koden inte skrivas flera gånger.
  *
- * Author:	????
+ * Author:	Erik, Oskar
  *
- * Date:	????
+ * Date:	2016-11-17
  */ 
 
 #ifndef COMMON_H_
@@ -12,12 +14,12 @@
 /*
  * This macro is used to set a specific bit in a register.
  */
-#define SET_BIT(reg, pos)	(reg) // lägg till kod här
+#define SET_BIT(reg, pos)	(reg |= 1 << pos)
 
 /*
  * This macro is used to clear a specific bit in a register.
  */
-#define CLR_BIT(reg, pos)	(reg) // lägg till kod här
+#define CLR_BIT(reg, pos)	(reg &= ~(1<<pos)) 
 
 /*
  * This macro is used to modify several bits of a register.
