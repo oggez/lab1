@@ -102,10 +102,13 @@ uint8_t input_int(char *p_msg, uint16_t *p_int_nr)
 		} while (key == NO_KEY);			// ...until a key is pressed!
 
 		if (key == '#') {					// confirmation of the number?
+			
 			break;
 		} else if (key == '*') {			// erase digit?
 			if (length > 0) {
-				//UPPGIFT: skriv kod så att tecknet suddas från displayen!
+				lcd_set_cursor_pos(1, length-1);
+				lcd_write(CHR, ' ');
+				lcd_set_cursor_pos(1, length-1);
 				length--;
 			}
 		} else if (length < max_length) {	// enter digit?
@@ -113,6 +116,7 @@ uint8_t input_int(char *p_msg, uint16_t *p_int_nr)
 			numbers[length] = key;
 			length++;
 		}
+		while(key == numkey_read()){}
 		
 		// continue when key is released!
 		//UPPGIFT: Skriv kod så att koden stannar/"loopar" tills att numkey_read() inte längre detekterar en knapptryckning!

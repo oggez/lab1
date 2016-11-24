@@ -72,7 +72,7 @@ void lcd_init(void)
 	SET_BIT(PORTB, 6);		// Set CS pin HIGH (normal level)
 	lcd_write(CMD, 0x21);	// Function set (H=1)
 	lcd_write(CMD, 0x13);	// Set bias mode 1:48
-	lcd_write(CMD, 0xCA);	// Set Vop (contrast)
+	lcd_write(CMD, 0xB1);	// Set Vop (contrast)
 	lcd_write(CMD, 0x04);	// Set temperature coefficient
 	lcd_write(CMD, 0x20);	// Function set (H=0)
 	lcd_write(CMD, 0x0C);	// Set display control (normal mode)

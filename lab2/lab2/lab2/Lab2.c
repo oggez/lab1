@@ -27,9 +27,9 @@ int main(void)
 	// initialize HMI (LCD and numeric keyboard)
 	hmi_init();
 	// generate seed for the pseudo-random number generator
-		srand(1);															//random_seed();
+		srand(7);															//random_seed();
 	// show start screen for the game
-	output_msg("WELCOME!", "LET'S PLAY...", 3);
+	output_msg("WELCOME!", "LET'S PLAY...", 1);
 	// play game
 	while (1) {
 		// generate a random number

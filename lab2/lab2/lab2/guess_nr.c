@@ -30,8 +30,8 @@ static uint16_t get_nr(void)
 	while (1) {
 		input_length = 0;//UPPGIFT: ändra koden så att 'input_int()' anropas, returvärdet ska lagras i 'input_length', 'guessed_nr' ska modifieras av 'input_int()'.
 		// if the user entered a number, and if it was between 1 and 100...
+		input_length = input_int("ENTER NUMBER:", &guessed_nr);
 		if (input_length > 0 && guessed_nr >= 1 && guessed_nr <= 100) {
-			// ...return that number!
 			return guessed_nr;
 		} else {
 			// show error/info message!
@@ -58,7 +58,7 @@ static uint8_t playing_game(uint16_t rnd_nr, uint16_t *p_nr_of_guesses)
 	guessed_nr = get_nr();
 	// keep track of number of guesses
 	//UPPGIFT: öka innehållet i variabeln som 'p_nr_of_guesses' pekar på.
-
+	++*p_nr_of_guesses;
 	// if the guessed number was the correct number...
 	if (guessed_nr == rnd_nr) {
 		output_msg("CORRECT NUMBER!", "", 1);
@@ -67,6 +67,7 @@ static uint8_t playing_game(uint16_t rnd_nr, uint16_t *p_nr_of_guesses)
 		output_msg("TOO LOW!", "", 1);
 	} else { // number too high?
 		output_msg("TOO HIGH!", "", 1);
+		
 	}
 	return 1;		// return 1 for "keep on playing!"
 }
@@ -86,11 +87,11 @@ static void show_result(uint16_t nr_of_guesses)
 	char result[17];
 	// show result
 	sprintf(result, "GUESSES: %u", nr_of_guesses);
-	output_msg(result, "", 3);
+	output_msg(result, "", 1);
 	if (nr_of_guesses <= 7) {
-		output_msg("GOOD JOB!", "", 3);
+		output_msg("GOOD JOB!", "", 1);
 	} else {
-		output_msg("BETTER LUCK", "NEXT TIME...", 3);
+		output_msg("BETTER LUCK", "NEXT TIME...", 1);
 	}
 }
 
@@ -105,7 +106,7 @@ void play_guess_nr(uint16_t rnd_nr)
 {
 	uint16_t nr_of_guesses = 0;
 	// show initial message, before game starts.
-	output_msg("CAN YOU GUESS", "THE NUMBER?", 3);
+	output_msg("CAN YOU GUESS", "THE NUMBER?", 1);
 	// play game until the correct number is guessed!
 	while (playing_game(rnd_nr, &nr_of_guesses));
 	// show result!

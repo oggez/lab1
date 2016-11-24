@@ -116,21 +116,21 @@ char numkey_read(void)
 		} else if (PINE & 0x20) {	// Row 3?
 		return key_map[11];
 	}
-	CLR_BIT(PORTG, 5);			// Set column 0
-	CLR_BIT(PORTE, 3);			// Clear column 1
-	CLR_BIT(PORTH, 3);			// Clear column 2
-	SET_BIT(PORTH, 4);			// Clear column 3
-	delay_ms(1);
-	if (PINF & 0x20) {			// Row 0?
-		return key_map[12];
-		} else if (PINF & 0x10) {	// Row 1?
-		return key_map[13];
-		} else if (PINE & 0x10) {	// Row 2?
-		return key_map[14];
-		} else if (PINE & 0x20) {	// Row 3?
-		return key_map[15];
-	}
-	
+// 	CLR_BIT(PORTG, 5);			// Set column 0
+// 	CLR_BIT(PORTE, 3);			// Clear column 1
+// 	CLR_BIT(PORTH, 3);			// Clear column 2
+// 	SET_BIT(PORTH, 4);			// Clear column 3
+// 	delay_ms(1);
+// 	if (PINF & 0x20) {			// Row 0?
+// 		return key_map[12];
+// 		} else if (PINF & 0x10) {	// Row 1?
+// 		return key_map[13];
+// 		} else if (PINE & 0x10) {	// Row 2?
+// 		return key_map[14];
+// 		} else if (PINE & 0x20) {	// Row 3?
+// 		return key_map[15];
+// 	}
+// 	
 	
 	
 	// no key was pressed!
